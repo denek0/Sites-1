@@ -84,15 +84,6 @@ banner_instagram_brute(){
 			"
 read -p $'\e[31m[\e[32m!\e[31m]\e[37mİşlem Numarası : ' islem_instagram_brute
 }
-wordlist(){
-						read -p $'\e[31m[\e[32m!\e[31m]\e[37mMaximum karakter uzunluğu : ' max
-						echo -e ""
-						read -p $'\e[31m[\e[32m!\e[31m]\e[37mMinimum karakter uzunluğu : ' min
-						echo -e ""
-						read -p $'\e[31m[\e[32m!\e[31m]\e[37mKaristirilcak metinler ve saylar (a-z ,0-9) : ' char
-						echo -e '\033[31;40;1mWordlistiniz oluşturuluyor.....'
-						wordlist -m $min -M $max -o wordlist.txt $char	
-}
 
 banner_facebook(){
 
@@ -197,7 +188,14 @@ if [[ $islem_sm == 1 || $islem_sm == 01 ]]; then
 				echo -e '\033[31;40;1mDaha önce oluşturulmuş bir wordlistiniz bulunmakta...'
 				read -p $'\e[31m[\e[32m!\e[31m]\e[37mYeni wordlist oluşturmak ister misiniz ? [E / H] : ' insta_brute
 					if [[ $insta_brute == "E" || $insta_brute == "e" ]]; then
-					wordlist
+						read -p $'\e[31m[\e[32m!\e[31m]\e[37mMaximum karakter uzunluğu : ' max
+						echo -e ""
+						read -p $'\e[31m[\e[32m!\e[31m]\e[37mMinimum karakter uzunluğu : ' min
+						echo -e ""
+						read -p $'\e[31m[\e[32m!\e[31m]\e[37mKaristirilcak metinler ve saylar (a-z ,0-9) : ' char
+						echo -e '\033[31;40;1mWordlistiniz oluşturuluyor.....'
+						wordlist -m $min -M $max -o wordlist.txt $char
+						echo -e '\033[31;40;1mWordlist oluşturuldu!'
 					else 
 					clear	
 					echo -e '\033[31;40;1mHayır dediniz! Eski wordlisti kullanmaya devam edilicek.'
@@ -205,7 +203,14 @@ if [[ $islem_sm == 1 || $islem_sm == 01 ]]; then
 					banner_instagram_brute
 					fi
 			else
-			wordlist	
+						read -p $'\e[31m[\e[32m!\e[31m]\e[37mMaximum karakter uzunluğu : ' max
+						echo -e ""
+						read -p $'\e[31m[\e[32m!\e[31m]\e[37mMinimum karakter uzunluğu : ' min
+						echo -e ""
+						read -p $'\e[31m[\e[32m!\e[31m]\e[37mKaristirilcak metinler ve saylar (a-z ,0-9) : ' char
+						echo -e '\033[31;40;1mWordlistiniz oluşturuluyor.....'
+						wordlist -m $min -M $max -o wordlist.txt $char
+						echo -e '\033[31;40;1mWordlist oluşturuldu!'	
 
 			fi
 		elif [[ $islem_instagram_brute == 2 || $islem_instagram_brute == 02 ]]; then
